@@ -1,0 +1,28 @@
+<form bindsubmit="formSubmit" bindreset="formReset">
+  <view class="bd">
+    <view class="input-group" style="display:flex;background:#fff;">
+      <view class="input-label" style="flex:1">id</view>
+      <input name="id" bindinput="inputname" style="flex:6" placeholder="动物编号"  confirm-type='next' />
+    </view>
+    <view class="input-group" style="display:flex;background:#fff;">
+      <view class="input-label" style="flex:1">date</view>
+      <input name="date" bindinput="inputname" style="flex:6" placeholder="上传日期" confirm-type='next' />
+    </view>
+    <view class="input-group" style="display:flex;background:#fff;">
+      <view class="input-label" style="flex:1">title</view>
+      <input name="title" bindinput="inputname" style="flex:6" placeholder="标题" confirm-type='next' />
+    </view>
+    <view class="input-group" style="display:flex;background:#fff;">
+      <view class="input-label" style="flex:1">cont</view>
+      <input name="cont" bindinput="inputname" style="flex:6" placeholder="简介" confirm-type='next' />
+    </view>
+    <view class="input-group" style="display:flex;background:#fff;">
+      <view class="input-label" style="flex:1">detail</view>
+      <input name="detail" bindinput="inputname" style="flex:6" placeholder="详细内容" />
+    </view>
+    <view class="btn-area">
+      <button style="width:94%" type="primary" formType="submit">Submit</button>
+      <button style="width:94%" type="warn" formType="reset">Reset</button>
+    </view>
+  </view>
+</form>

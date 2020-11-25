@@ -1,0 +1,16 @@
+<template name="myorders-template">
+<view class='wx-cards-sale-card'>
+  <view class="img">
+    <image mode="aspectFill" src="{{item.img}}"></image>
+  </view>
+  <view class='middle'>
+    <view class="price-type">
+      <view class="title">{{item.title}}</view>
+    </view>
+    <view class='price-type' style="width: 97%;position: absolute;bottom: 0;">
+      <view class="type">{{item.type}}</view>
+      <view class="price">${{item.price}}</view>
+    </view>
+  </view>
+</view>
+</template>

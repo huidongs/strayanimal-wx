@@ -1,0 +1,62 @@
+<view class="container detail-container">
+  <view class="detail-header-box">
+
+    <view class="detail-topic-img">
+      <image src="/images/products/catfood.jpg" mode="aspectFit"></image>
+    </view>
+
+    <view class="cart-box">
+      <view class="product-counts">
+        <picker class="{{productCount==0?'disabled':''}}" value="{{index}}" bindchange="bindPickerChange" range="{{countsArray}}">
+          <!--因为picker对flex支持不好，所以加了一层view-->
+          <view>
+            <text class="counts-tips">数量</text>
+            <text class="counts-data">{{productCount}}</text>
+            <image class="counts-icon" src="/images/icon/arrow@down.png"></image>
+          </view>
+        </picker>
+      </view>
+      <view class="middle-border"></view>
+      <view class="add-cart-btn {{productCount==0?'disabled':''}}" bindtap="onToShoping">
+        <text>购买</text>
+        <image class="cart-icon" src="/images/icon/buy4.png"></image>
+      </view>
+    </view>
+     <view class="basic-info-box">
+      <view class="stock" wx:if="{{productCount>0}}">有货</view>
+      <view class="stock no" wx:else>缺货</view>
+      <view class="name">猫粮 500克</view>
+      <view class="price">￥{{price}}</view>
+    </view>
+  </view>
+   <view class="detail-bottom-box">
+    <view class="tabs-box">
+      <block wx:for="{{tabContent}}">
+        <view class="tabs-item {{currentTabsIndex==index?'selected':''}}" bindtap="onTabsItemTap" data-index="{{index}}">
+          {{item}}
+        </view>
+      </block>
+    </view>
+    
+    <view class="product-detail-box">
+      <view class="product-detail-imgs" hidden="{{currentTabsIndex!=0}}">
+       <view style="text-align:center">商品详情</view>
+        <!-- <block wx:for="{{product.imgs}}">
+          <image src="{{item.img_url.url}}" mode="aspectFill"></image>
+        </block> -->
+      </view>
+      <view class="product-detail-properties" hidden="{{currentTabsIndex!=1}}">
+       <view style="text-align:center">产品参数</view>
+        <!-- <block wx:for="{{product.properties}}">
+          <view class="properties-item">
+            <view class="properties-name">{{item.name}}</view>
+            <view class="properties-detail">{{item.detail}}</view>
+          </view>
+        </block> -->
+      </view>
+      <view class="product-detail-protect" hidden="{{currentTabsIndex!=2}}">
+        <view>七天无理由免费退货</view>
+      </view>
+    </view>
+  </view>
+</view>

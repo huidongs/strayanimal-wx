@@ -1,0 +1,6 @@
+<!-- 导入目标文件 -->
+<import src="../myorders-template/myorders-template.wxml" />
+<!--  -->
+<block wx:for="{{myorders_data}}">
+  <template is="myorders-template" data="{{item}}"></template>
+</block>

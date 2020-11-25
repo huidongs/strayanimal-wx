@@ -1,0 +1,9 @@
+<view>
+  <view class="search">
+    <icon type="search" class="search-img" size="16" color="#405f80"></icon>
+    <input placeholder="输入需要查询的动物ID" confirm-type="search" placeholder-class="placeholder" bindfocus="onBindFocus" bindconfirm="onBindConfirm"></input>
+  </view>
+  <map class="map" id="myMap" subkey="PHBBZ-JRA3F-XWMJK-JADGI-G56PZ-42BHI" latitude="{{latitude}}" longitude="{{longitude}}" show-compass="true" markers="{{markers}}" enable-zoom="true"></map>
+
+
+</view>

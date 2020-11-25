@@ -1,0 +1,34 @@
+<!-- 先静后动，先样式再数据 -->
+<view class="container">
+  <!-- 头部图片及音符图片 -->
+  <image class="head-img" src="{{animalData.headImgSrc}}"></image>
+  <!-- <image catchtap="onMusicTap" class="audio" src="{{isPlayingMusic?'/images/music/music-stop.png':'/images/music/music-start.png'}}"></image> -->
+  <!-- 作者头像，发表源及时间 -->
+  <view class="author-info">
+    <!-- <image class="avatar" src="{{postData.avatar}}"></image> -->
+    <!-- <text class="author">{{postData.author}}</text>
+    <text class="publiction-source">发表于</text>
+    <text class="publiction-date">{{postData.dateTime}}</text> -->
+  </view>
+  <!-- 文章标题 -->
+  <text class="title">{{animalData.title}}</text>
+  <!-- 分割线及购买粮食和收藏分享 -->
+  <view class="tool">
+
+    <!-- 购买收藏分享 -->
+    <view class="circle-img">
+      <!-- 购买粮食 -->
+      <image catchtap="onShopTap" class="food-img" src="/images/icon/cat_food.png"></image>
+      <!-- 点击收藏 -->
+      <image wx:if="{{collected}}" catchtap="onCollectionTap" src="/images/icon/like-anti.png"></image>
+      <image wx:else catchtap="onCollectionTap" src="/images/icon/like.png"></image>
+      <!-- 点击分享 -->
+      <image catchtap="onShareTap" class="share-img" src="/images/icon/share.png"></image>
+    </view>
+    <view class="horizon"></view>
+  </view>
+  <!-- 正文内容 -->
+  <view class="content">
+    <text>{{animalData.detail}}</text>
+  </view>
+</view>

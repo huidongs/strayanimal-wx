@@ -1,0 +1,27 @@
+<!--订单详情-->
+<view class="container order-container">
+
+  <!--列表-->
+  <view class="order-main">
+      <view class="product-item">
+        <view class="item-left">
+          <image src="/images/products/catfood.jpg"></image>
+        </view>
+        <view class="item-middle">
+          <view>精品猫粮</view>
+          <view>{{price*productCount}}</view>
+        </view>
+        <view class="item-right">
+          ×{{productCount}}
+        </view>
+      </view>
+    </view>
+
+  <!--结算-->
+  <view class="footer-account-box order-accounts">
+    <view class="total-account">
+      付款合计：￥{{price*productCount}}
+    </view>
+    <view  class="pay" ontap="pay">去付款</view>
+  </view>
+</view>

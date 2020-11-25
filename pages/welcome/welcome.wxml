@@ -1,0 +1,7 @@
+<view class="cover">
+  <image class="cover-image" src="/images/cover/cover4.png"></image>
+  <view class="moto-container"  >
+    <button wx:if="{{canIUse}}" type="primary" open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo">是否授权登录</button>
+    <view wx:else>请升级微信版本</view>
+  </view>
+</view>

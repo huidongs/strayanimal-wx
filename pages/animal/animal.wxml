@@ -1,0 +1,13 @@
+<!-- 导入目标文件 -->
+<import src="animal-item/animal-item-template.wxml" />
+<!-- body -->
+<view class="search">
+  <icon type="search" class="search-img" size="16" color="#405f80"></icon>
+  <input placeholder="输入需要查询的动物ID" confirm-type="search" placeholder-class="placeholder" bindfocus="onBindFocus" bindconfirm="onBindConfirm"></input>
+</view>
+<block wx:for="{{posts_key}}">
+  <!-- 引用template -->
+  <view catchtap="onPostTap" data-postId="{{item.postId}}">
+    <template is="post-template" data="{{item}}" />
+  </view>
+</block>

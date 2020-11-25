@@ -1,0 +1,110 @@
+.container {
+  display: flex;
+  flex-direction: column;
+}
+
+.head-img {
+  width: 100%;
+  height: 460rpx;
+}
+
+/* 1 直接在css中设置left生效的前提是必须设置父容器position:absolute或relative
+   2 即如果想要使left和top生效的话，必须得设置position:relative,absolute,fixed;设置static不可以 
+---------------------------区分margin-left与left----------------------------
+1>只有margin-left：这样子position的声明没有任何作用，因为即使声明了，也得靠left,top来调整位置，如果没有    left等，则position失效，元素位置仍为其该在的位置，margin-left还是相对于其父元素的距离
+2>只有left等：正常情况
+3>同时有margin-left和left：这种情况下，定位是有作用的，在定位完成后margin-left再起作用，即margin-left和left是可以叠加的*/
+
+.audio {
+  width: 102rpx;
+  height: 110rpx;
+  left: 50%;
+  margin-left: -51rpx;
+  margin-top: 180rpx;
+  position: absolute;
+  opacity: 0.6;
+}
+
+.author-info {
+  flex-direction: row;
+  margin-left: 25rpx;
+  margin-top: 20rpx;
+}
+
+.avatar {
+  height: 64rpx;
+  width: 64rpx;
+  vertical-align: middle;
+}
+
+.author {
+  font-size: 30rpx;
+  font-weight: 300;
+  margin-left: 20rpx;
+  vertical-align: middle;
+  color: #666;
+}
+
+.publiction-source {
+  font-size: 24rpx;
+  margin-left: 20rpx;
+  color: #999;
+}
+
+.publiction-date {
+  font-size: 24rpx;
+  margin-left: 30rpx;
+  vertical-align: middle;
+  color: #999;
+}
+
+.title {
+  margin-left: 40rpx;
+  font-size: 36rpx;
+  font-weight: 700;
+  margin-top: 30rpx;
+  letter-spacing: 2px;
+  color: #4b556c;
+}
+.tool {
+  margin-top: 20rpx;
+}
+
+.circle-img {
+  float: right;
+  margin-right: rpx;
+  vertical-align: middle;
+}
+.circle-img image {
+  width: 80rpx;
+  height: 80rpx;
+}
+.food-img{
+  margin-right: 30rpx;
+}
+.share-img {
+  margin-left: 30rpx;
+}
+.horizon {
+  width: 660rpx;
+  height: 1.5px;
+  background-color: #e5e5e5;
+  vertical-align: middle;
+  position: relative;
+  top: 46rpx;
+  margin: 0 auto;
+  z-index: -99;
+}
+.detail {
+  color: #666;
+  margin-left: 30rpx;
+  margin-top: 20rpx;
+  margin-right: 30rpx;
+  line-height: 44rpx;
+  letter-spacing: 2px;
+}
+.content{
+  margin-top: 20rpx;
+  text-align: center;
+  
+}
