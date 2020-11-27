@@ -1,6 +1,5 @@
 {
   "pages": [
-    "pages/welcome/welcome",
     "pages/home/home",
     "pages/map/map",
     "pages/animal/animal",
@@ -12,7 +11,8 @@
     "pages/home/mycollection/mycollection",
     "pages/home/test/test",
     "pages/admin/addanimal/addanimal",
-    "pages/admin/searchanimal/searchanimal"
+    "pages/admin/searchanimal/searchanimal",
+    "pages/auth/login/login"
   ],
   "requiredBackgroundModes": [
     "audio",
