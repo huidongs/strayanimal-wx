@@ -17,8 +17,8 @@ Page({
       avatarUrl: '/images/icon/my.png'
     },
     hasLogin: false,
-    hasUserInfo: false,
-    canIUse: wx.canIUse('button.open-type.getUserInfo')
+    //hasUserInfo: false,
+    //canIUse: wx.canIUse('button.open-type.getUserInfo')
 
   },
 
