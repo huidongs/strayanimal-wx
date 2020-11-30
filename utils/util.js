@@ -20,7 +20,7 @@ function formatNumber(n) {
 }
 
 /**
- * 封封微信的的request
+ * 封封微信的request
  */
 function request(url, data = {}, method = "GET") {
   return new Promise(function(resolve, reject) {
@@ -33,22 +33,23 @@ function request(url, data = {}, method = "GET") {
         'X-StrayAnimal-Token': wx.getStorageSync('token')
       },
       success: function(res) {
-        console.log("这里是request方法这的请求返回结果："+res+"====="+res.data)
         if (res.statusCode == 200) {
-
-          if (res.data.token == null) {
+          if (res.data.token.token == null) {
             // 清除登录相关内容
             try {
               wx.removeStorageSync('userInfo');
               wx.removeStorageSync('token');
             } catch (e) {
+              console.log("进入了res.statusCode == 200下res.data.token == null的catch："+e)
               // Do something when catch error
             }
             // 切换到登录页面
             wx.navigateTo({
               url: '/pages/auth/login/login'
             });
+
           } else {
+            console.log("wx.request成功，进入resolve，并且res.data:")
             resolve(res.data);
           }
         } else {
@@ -57,6 +58,7 @@ function request(url, data = {}, method = "GET") {
 
       },
       fail: function(err) {
+        console.log("request请求失败：")
         reject(err)
       }
     })

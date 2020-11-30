@@ -20,15 +20,13 @@ Page({
     // 页面关闭
   },
   wxLogin: function (e) {
-    console.log(e)
-    //这里为什么是undefined就登录失败了？
+    
     if (e.detail.userInfo == undefined) {
       app.globalData.hasLogin = false;
       util.showErrorToast('微信登录失败-1');
       return;
     }
     user.checkLogin().catch(() => {
-
       user.loginByWeixin(e.detail.userInfo).then(res => {
         app.globalData.hasLogin = true;
 
