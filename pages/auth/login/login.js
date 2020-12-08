@@ -40,12 +40,8 @@ Page({
     });
   },
   accountLogin: function () {
-    wx.showModal({
-      title: '暂未开放',
-      content: '是的，其实就是没有写:)',
-    })
-    // wx.navigateTo({
-    //   url: "/pages/auth/accountLogin/accountLogin"
-    // });
+    wx.navigateTo({
+      url: "/pages/auth/accountLogin/accountLogin"
+    });
   }
 })

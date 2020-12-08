@@ -45,28 +45,16 @@
   "simulatorType": "wechat",
   "simulatorPluginLibVersion": {},
   "condition": {
-    "search": {
-      "current": -1,
-      "list": []
-    },
-    "conversation": {
-      "current": -1,
-      "list": []
-    },
     "plugin": {
-      "current": -1,
       "list": []
     },
     "game": {
-      "currentL": -1,
       "list": []
     },
     "gamePlugin": {
-      "current": -1,
       "list": []
     },
     "miniprogram": {
-      "current": -1,
       "list": [
         {
           "id": -1,
@@ -121,6 +109,12 @@
           "id": -1,
           "name": "pages/home/myorders/myorders",
           "pathName": "pages/home/myorders/myorders",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/auth/register/register",
+          "pathName": "pages/auth/register/register",
           "scene": null
         }
       ]
