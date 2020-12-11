@@ -54,16 +54,14 @@ function loginByWeixin(userInfo) {
       util.request(api.AuthLoginByWeixin, {
         code: res.code,
         avatarUrl: userInfo.avatarUrl,
-        wxNickname: userInfo.nickName
+        nickname: userInfo.nickName
       }, 'POST').then((res) => {
-        if (res) {
+        if (res.errno===0) {
           //存储用户信息
           console.log("这里是服务器返回的数据:")
           console.log(res)
-          res.user.nickName=res.user.wxNickname
-          console.log(res)
-          wx.setStorageSync('userInfo', res.user);
-          wx.setStorageSync('token', res.token.token);
+          wx.setStorageSync('userInfo', res.data.userInfo);
+          wx.setStorageSync('token', res.data.token.token);
           resolve(res);
         } else {
           console.log("进入了reject-1，代表获取后台信息失败:")

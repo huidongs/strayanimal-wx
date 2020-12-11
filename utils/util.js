@@ -34,13 +34,13 @@ function request(url, data = {}, method = "GET") {
       },
       success: function(res) {
         if (res.statusCode == 200) {
-          if (res.data.token.token == null) {
+          if (res.data.data.token.token == null) {
             // 清除登录相关内容
             try {
               wx.removeStorageSync('userInfo');
               wx.removeStorageSync('token');
             } catch (e) {
-              console.log("进入了res.statusCode == 200下res.data.token == null的catch："+e)
+              console.log("进入了res.statusCode == 200下s.data.data.token.token == null的catch："+e)
               // Do something when catch error
             }
             // 切换到登录页面

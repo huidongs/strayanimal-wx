@@ -70,112 +70,24 @@ Page({
   onShareAppMessage: function () {
 
   },
-  sendCode: function() {
-    let that = this;
-
-    if (this.data.mobile.length == 0) {
-      wx.showModal({
-        title: '错误信息',
-        content: '手机号不能为空',
-        showCancel: false
-      });
-      return false;
-    }
-
-    if (!check.isValidPhone(this.data.mobile)) {
-      wx.showModal({
-        title: '错误信息',
-        content: '手机号输入不正确',
-        showCancel: false
-      });
-      return false;
-    }
-
-    wx.request({
-      url: api.AuthRegisterCaptcha,
-      data: {
-        mobile: that.data.mobile
-      },
-      method: 'POST',
-      header: {
-        'content-type': 'application/json'
-      },
-      success: function(res) {
-        if (res.data.errno == 0) {
-          wx.showModal({
-            title: '发送成功',
-            content: '验证码已发送',
-            showCancel: false
-          });
-        } else {
-          wx.showModal({
-            title: '错误信息',
-            content: res.data.errmsg,
-            showCancel: false
-          });
-        }
-      }
-    });
-  },
-  requestRegister: function(wxCode) {
-    let that = this;
-    wx.request({
-      url: api.AuthRegister,
-      data: {
-        username: that.data.username,
-        password: that.data.password,
-        mobile: that.data.mobile,
-        code: that.data.code,
-        wxCode: wxCode
-      },
-      method: 'POST',
-      header: {
-        'content-type': 'application/json'
-      },
-      success: function(res) {
-        if (res.data.errno == 0) {
-          app.globalData.hasLogin = true;
-          wx.setStorageSync('userInfo', res.data.data.userInfo);
-          wx.setStorage({
-            key: "token",
-            data: res.data.data.token,
-            success: function() {
-              wx.switchTab({
-                url: '/pages/ucenter/index/index'
-              });
-            }
-          });
-        } else {
-          wx.showModal({
-            title: '错误信息',
-            content: res.data.errmsg,
-            showCancel: false
-          });
-        }
-      }
-    });
-  },
-  startRegister: function() {
+  startRegister: function (e) {
     var that = this;
-
-    if (this.data.password.length < 6 || this.data.username.length < 6) {
+    if (this.data.username.length < 6 || this.data.password.length < 6) {
       wx.showModal({
         title: '错误信息',
-        content: '用户名和密码不得少于6位',
+        content: '用户名和密码不能少于6位',
         showCancel: false
-      });
+      })
       return false;
     }
-
     if (this.data.password != this.data.confirmPassword) {
       wx.showModal({
         title: '错误信息',
         content: '确认密码不一致',
         showCancel: false
-      });
-      return false;
+      })
+      return false
     }
-
     if (this.data.mobile.length == 0 || this.data.code.length == 0) {
       wx.showModal({
         title: '错误信息',
@@ -184,7 +96,6 @@ Page({
       });
       return false;
     }
-
     if (!check.isValidPhone(this.data.mobile)) {
       wx.showModal({
         title: '错误信息',
@@ -195,7 +106,7 @@ Page({
     }
 
     wx.login({
-      success: function(res) {
+      success: function (res) {
         if (!res.code) {
           wx.showModal({
             title: '错误信息',
@@ -203,42 +114,76 @@ Page({
             showCancel: false
           });
         }
-
         that.requestRegister(res.code);
       }
     });
   },
-  bindUsernameInput: function(e) {
+  requestRegister: function (wxCode) {
+    var that = this
+    wx.request({
+      url: api.AuthRegister, //仅为示例，并非真实的接口地址
+      data: {
+        username: that.data.username,
+        password: that.data.password,
+        mobile: that.data.mobile,
+        code: that.data.code,
+        wxCode: wxCode
+      },
+      method: 'POST',
+      header: {
+        'content-type': 'application/json' // 默认值
+      },
+      success(res) {
+        if (res.data.errno == 0) {
+          app.globalData.hasLogin = true;
+          wx.setStorageSync('userInfo', res.data.data.userInfo)
+          wx.setStorage({
+            data: res.data.data.token.token,
+            key: 'token',
+            success: function () {
+              wx.switchTab({
+                url: '/pages/home/home'
+              });
+            }
+          })
+        } else {
+          wx.showModal({
+            title: '错误信息',
+            content: res.data.errmsg,
+            showCancel: false
+          });
+        }
+      },
 
+    })
+
+  },
+  bindUsernameInput: function (e) {
     this.setData({
       username: e.detail.value
     });
   },
-  bindPasswordInput: function(e) {
-
+  bindPasswordInput: function (e) {
     this.setData({
       password: e.detail.value
-    });
+    })
   },
-  bindConfirmPasswordInput: function(e) {
-
+  bindConfirmPasswordInput: function (e) {
     this.setData({
       confirmPassword: e.detail.value
     });
   },
-  bindMobileInput: function(e) {
-
+  bindMobileInput: function (e) {
     this.setData({
       mobile: e.detail.value
     });
   },
-  bindCodeInput: function(e) {
-
+  bindCodeInput: function (e) {
     this.setData({
       code: e.detail.value
     });
   },
-  clearInput: function(e) {
+  clearInput: function (e) {
     switch (e.currentTarget.id) {
       case 'clear-username':
         this.setData({
@@ -267,4 +212,5 @@ Page({
         break;
     }
   }
+
 })
