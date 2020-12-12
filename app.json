@@ -11,10 +11,7 @@
     "pages/home/mycollection/mycollection",
     "pages/admin/addanimal/addanimal",
     "pages/admin/searchanimal/searchanimal",
-    "pages/auth/login/login",
-    "pages/auth/accountLogin/accountLogin",
-    "pages/auth/register/register",
-    "pages/auth/reset/reset"
+    "pages/auth/login/login"
   ],
   "requiredBackgroundModes": [
     "audio",
@@ -32,42 +29,22 @@
       {
         "pagePath": "pages/animal/animal",
         "text": "动物",
-        "iconPath": "images/tabbar/animal.png",
-        "selectedIconPath": "images/tabbar/animal_hl.png"
+        "iconPath": "/images/tabbar/animal.png",
+        "selectedIconPath": "/images/tabbar/animal_hl.png"
       },
       {
         "pagePath": "pages/map/map",
         "text": "定位",
-        "iconPath": "images/tabbar/map.png",
-        "selectedIconPath": "images/tabbar/map_hl.png"
+        "iconPath": "/images/tabbar/map.png",
+        "selectedIconPath": "/images/tabbar/map_hl.png"
       },
       {
         "pagePath": "pages/home/home",
         "text": "我的",
-        "iconPath": "images/tabbar/home.png",
-        "selectedIconPath": "images/tabbar/home_hl.png"
+        "iconPath": "/images/tabbar/home.png",
+        "selectedIconPath": "/images/tabbar/home_hl.png"
       }
     ]
-  },
-  "networkTimeout": {
-    "request": 10000,
-    "connectSocket": 10000,
-    "uploadFile": 10000,
-    "downloadFile": 10000
-  },
-  "debug": true,
-  "usingComponents": {
-    "van-cell": "./lib/vant-weapp/cell/index",
-    "van-cell-group": "./lib/vant-weapp/cell-group/index",
-    "van-picker": "./lib/vant-weapp/picker/index",
-    "van-popup": "./lib/vant-weapp/popup/index",
-    "van-field": "./lib/vant-weapp/field/index",
-    "van-uploader": "./lib/vant-weapp/uploader/index",
-    "van-button": "./lib/vant-weapp/button/index",
-    "van-tag": "./lib/vant-weapp/tag/index",
-    "van-icon": "./lib/vant-weapp/icon/index",
-    "van-checkbox": "./lib/vant-weapp/checkbox/index",
-    "van-steps": "./lib/vant-weapp/steps/index"
   },
   "style": "v2",
   "sitemapLocation": "sitemap.json"

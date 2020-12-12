@@ -20,13 +20,15 @@ Page({
     // 页面关闭
   },
   wxLogin: function (e) {
-    
+    console.log(e)
+    //这里为什么是undefined就登录失败了？
     if (e.detail.userInfo == undefined) {
       app.globalData.hasLogin = false;
       util.showErrorToast('微信登录失败-1');
       return;
     }
     user.checkLogin().catch(() => {
+
       user.loginByWeixin(e.detail.userInfo).then(res => {
         app.globalData.hasLogin = true;
 
@@ -40,8 +42,12 @@ Page({
     });
   },
   accountLogin: function () {
-    wx.navigateTo({
-      url: "/pages/auth/accountLogin/accountLogin"
-    });
+    wx.showModal({
+      title: '暂未开放',
+      content: '是的，其实就是没有写:)',
+    })
+    // wx.navigateTo({
+    //   url: "/pages/auth/accountLogin/accountLogin"
+    // });
   }
 })

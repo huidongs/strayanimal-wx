@@ -29,10 +29,11 @@
       "outputPath": ""
     },
     "useIsolateContext": true,
-    "useCompilerModule": true,
+    "useCompilerModule": false,
     "userConfirmedUseCompilerModuleSwitch": false,
     "packNpmManually": false,
-    "packNpmRelationList": []
+    "packNpmRelationList": [],
+    "minifyWXSS": true
   },
   "compileType": "miniprogram",
   "libVersion": "2.10.1",
@@ -45,10 +46,17 @@
   "simulatorType": "wechat",
   "simulatorPluginLibVersion": {},
   "condition": {
+    "search": {
+      "list": []
+    },
+    "conversation": {
+      "list": []
+    },
     "plugin": {
       "list": []
     },
     "game": {
+      "currentL": -1,
       "list": []
     },
     "gamePlugin": {
@@ -109,12 +117,6 @@
           "id": -1,
           "name": "pages/home/myorders/myorders",
           "pathName": "pages/home/myorders/myorders",
-          "query": "",
-          "scene": null
-        },
-        {
-          "name": "pages/auth/register/register",
-          "pathName": "pages/auth/register/register",
           "scene": null
         }
       ]
